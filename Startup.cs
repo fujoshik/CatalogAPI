@@ -17,6 +17,10 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Serializers;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using System.Text.Json;
+using System.Net.Mime;
+using Microsoft.AspNetCore.Http;
 
 namespace Catalog
 {
@@ -34,11 +38,12 @@ namespace Catalog
         {
             BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
             BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(BsonType.String));
-            
+            var mongoDbSettings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
+
             services.AddSingleton<IMongoClient>(serviceProvider =>
             {
-                var settings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
-                return new MongoClient(settings.ConnectionString);
+                
+                return new MongoClient(mongoDbSettings.ConnectionString);
             });
 
             services.AddSingleton<IItemsRepository, MongoDbItemsRepository>();
@@ -48,6 +53,14 @@ namespace Catalog
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Catalog", Version = "v1" });
             });
+
+            services.AddHealthChecks()
+                .AddMongoDb(
+                    mongoDbSettings.ConnectionString, 
+                    name: "mongodb", 
+                    timeout: TimeSpan.FromSeconds(3),
+                    tags: new[] {"ready"}
+                    );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -69,6 +82,31 @@ namespace Catalog
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+
+                endpoints.MapHealthChecks("/health/ready", new HealthCheckOptions{
+                    Predicate = (check) => check.Tags.Contains("ready"),
+                    ResponseWriter = async(context, report) =>
+                    {
+                        var result = JsonSerializer.Serialize(
+                            new{
+                                status = report.Status.ToString(),
+                                checks = report.Entries.Select(e => new {
+                                    name = e.Key,
+                                    status = e.Value.Status.ToString(),
+                                    exception = e.Value.Exception != null ? e.Value.Exception.Message : "none",
+                                    duration = e.Value.Duration.ToString()
+                                })
+                            }
+                        );
+
+                        context.Response.ContentType = MediaTypeNames.Application.Json;
+                        await context.Response.WriteAsync(result);
+                    }
+                });
+
+                endpoints.MapHealthChecks("/health/live", new HealthCheckOptions{
+                    Predicate = (_) => false
+                });
             });
         }
     }

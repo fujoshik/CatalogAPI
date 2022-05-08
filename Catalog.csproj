@@ -1,11 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 	<PropertyGroup>
 		<TargetFramework>net5.0</TargetFramework>
-	</PropertyGroup>
+	  <UserSecretsId>f470948b-236f-4e91-8a70-c7a7d528bb70</UserSecretsId>
+  </PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="MongoDB.Driver" Version="2.15.0"/>
-		<PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3"/>
-		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.0"/>
-		<PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="5.0.1"/>
+		<PackageReference Include="AspNetCore.HealthChecks.MongoDb" Version="6.0.2" />
+		<PackageReference Include="MongoDB.Driver" Version="2.15.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="5.0.1" />
 	</ItemGroup>
 </Project>
