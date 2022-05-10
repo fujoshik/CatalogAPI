@@ -11,6 +11,10 @@
 using System;
 using System.Reflection;
 
+<<<<<<< HEAD
+=======
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("f470948b-236f-4e91-8a70-c7a7d528bb70")]
+>>>>>>> origin/new-branch
 [assembly: System.Reflection.AssemblyCompanyAttribute("Catalog")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]

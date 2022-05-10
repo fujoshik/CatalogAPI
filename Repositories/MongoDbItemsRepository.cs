@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+<<<<<<< HEAD
 using System.Threading.Tasks;
+=======
+>>>>>>> origin/new-branch
 using Catalog.Entities;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -18,6 +21,7 @@ namespace Catalog.Repositories
             IMongoDatabase database = mongoClient.GetDatabase(databaseName);
             itemsCollection = database.GetCollection<Item>(collectionName);
         }
+<<<<<<< HEAD
         public async Task CreateItemAsync(Item item)
         {
             await itemsCollection.InsertOneAsync(item);
@@ -44,6 +48,34 @@ namespace Catalog.Repositories
         {
             var filter = filterBuilder.Eq(i => i.Id, item.Id);
             await itemsCollection.ReplaceOneAsync(filter, item);
+=======
+        public void CreateItem(Item item)
+        {
+            itemsCollection.InsertOne(item);
+        }
+
+        public void DeleteItem(Guid id)
+        {
+            var filter = filterBuilder.Eq(i => i.Id, id);
+            itemsCollection.DeleteOne(filter);
+        }
+
+        public Item GetItem(Guid id)
+        {
+            var filter = filterBuilder.Eq(i => i.Id, id);
+            return itemsCollection.Find(filter).SingleOrDefault();
+        }
+
+        public IEnumerable<Item> GetItems()
+        {
+            return itemsCollection.Find(new BsonDocument()).ToList();
+        }
+
+        public void UpdateItem(Item item)
+        {
+            var filter = filterBuilder.Eq(i => i.Id, item.Id);
+            itemsCollection.ReplaceOne(filter, item);
+>>>>>>> origin/new-branch
         }
     }
 }

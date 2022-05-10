@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "F:\\Programming\\Catalog\\Catalog.csproj": {}
   },
   "projects": {
@@ -22,12 +23,31 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+=======
+    "D:\\Programming\\CatalogAPI-master\\Catalog.csproj": {}
+  },
+  "projects": {
+    "D:\\Programming\\CatalogAPI-master\\Catalog.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Programming\\CatalogAPI-master\\Catalog.csproj",
+        "projectName": "Catalog",
+        "projectPath": "D:\\Programming\\CatalogAPI-master\\Catalog.csproj",
+        "packagesPath": "C:\\Users\\EliteBook 8770w\\.nuget\\packages\\",
+        "outputPath": "D:\\Programming\\CatalogAPI-master\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\EliteBook 8770w\\AppData\\Roaming\\NuGet\\NuGet.Config"
+>>>>>>> origin/new-branch
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+<<<<<<< HEAD
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+=======
+>>>>>>> origin/new-branch
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -46,6 +66,13 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+<<<<<<< HEAD
+=======
+            "AspNetCore.HealthChecks.MongoDb": {
+              "target": "Package",
+              "version": "[6.0.2, )"
+            },
+>>>>>>> origin/new-branch
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[5.0.0, )"
@@ -81,7 +108,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
+>>>>>>> origin/new-branch
         }
       }
     }
