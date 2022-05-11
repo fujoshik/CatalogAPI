@@ -1,5 +1,13 @@
 {
+<<<<<<< HEAD:Catalog.API/obj/Debug/net5.0/project.razor.json
   "FilePath": "f:\\Programming\\Catalog\\Catalog.API\\Catalog.API.csproj",
+=======
+<<<<<<< HEAD
+  "FilePath": "f:\\Programming\\Catalog\\Catalog.csproj",
+=======
+  "FilePath": "d:\\Programming\\CatalogAPI-master\\Catalog.csproj",
+>>>>>>> origin/new-branch
+>>>>>>> 880b17481dfaa08133a77fd560b5b1f7b0dc67e5:obj/Debug/net5.0/project.razor.json
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "5.0",

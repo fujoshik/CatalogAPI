@@ -10,7 +10,15 @@
 using System;
 using System.Reflection;
 
+<<<<<<< HEAD:Catalog.API/obj/Debug/net5.0/Catalog.API.AssemblyInfo.cs
 [assembly: System.Reflection.AssemblyCompanyAttribute("Catalog.API")]
+=======
+<<<<<<< HEAD
+=======
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("f470948b-236f-4e91-8a70-c7a7d528bb70")]
+>>>>>>> origin/new-branch
+[assembly: System.Reflection.AssemblyCompanyAttribute("Catalog")]
+>>>>>>> 880b17481dfaa08133a77fd560b5b1f7b0dc67e5:obj/Debug/net5.0/Catalog.AssemblyInfo.cs
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
